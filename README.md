@@ -6,10 +6,10 @@ repository privato `GuidoGentile/MobilityManager`.
 
 ## Download
 
-La versione di test preparata è **0.1.0-dev36** per Windows x64. Il suo installer
-non è ancora allegato alla sezione [Releases](https://github.com/GuidoGentile/mobilitymanager-download/releases);
-la [landing page](https://guidogentile.github.io/mobilitymanager-download/) ne
-segnala lo stato senza promettere un download inesistente.
+La versione di test **0.1.0-dev36** per Windows x64 è disponibile come
+[prerelease pubblica](https://github.com/GuidoGentile/mobilitymanager-download/releases/tag/v0.1.0-dev36).
+La [landing page](https://guidogentile.github.io/mobilitymanager-download/)
+rimanda direttamente all'installer.
 Il pacchetto non è firmato digitalmente e non include dati personali né il
 dataset territoriale italiano, che si installa separatamente nell'applicazione.
 
