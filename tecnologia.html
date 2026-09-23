@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Architettura tecnica di MobilityManager: webapp locale, PDF e piano web autonomo, cartografia OSM, GTFS, NeTEx Trenitalia, OpenTripPlanner e funzionamento offline.">
+  <meta name="theme-color" content="#06344f">
+  <title>Tecnologia — MobilityManager</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand-logo.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260915-release-blue">
+  <script src="assets/app.js?v=20260915-release-blue" defer></script>
+</head>
+<body class="technology-page">
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header scrolled" data-header>
+    <a class="brand" href="index.html" aria-label="MobilityManager, torna alla pagina principale"><span class="brand-logo" aria-hidden="true"></span></a>
+    <nav aria-label="Navigazione principale"><a href="#architettura">Architettura</a><a href="#pacchetto-dati">Dati locali</a><a href="#offline">Offline</a><a href="#trasporti">Trasporti</a></nav>
+    <a class="header-action" href="http://mobilitymanager.localhost:8765/">Apri l’app locale <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="contenuto">
+    <section class="tech-hero">
+      <p class="eyebrow"><span></span> IMPLEMENTAZIONE TECNICA</p>
+      <h1>Un’app nel browser.<br><em>Un motore sulla macchina.</em></h1>
+      <p>MobilityManager è sviluppato in Python 3.11. L’interfaccia web si apre nel browser, ma il server ascolta soltanto sul computer dell’utente. I dati individuali non vengono caricati su un sito remoto.</p>
+      <div class="tech-proof"><span>Python 3.11</span><span>Webapp loopback</span><span>PDF + HTML autonomo</span><span>Nominatim 5.3</span><span>OTP 2.9</span><span>14 comandi MCP</span></div>
+    </section>
+
+    <section class="section tech-section" id="architettura">
+      <div class="section-kicker">COME È COSTRUITO</div>
+      <div class="tech-heading"><h2>Sei livelli, confini chiari.</h2><p>Ogni livello ha una responsabilità precisa. L’interfaccia coordina il lavoro; non contiene il motore analitico e non trasferisce dati a un backend esterno.</p></div>
+      <div class="architecture-stack" aria-label="Architettura del software">
+        <article><b>01</b><div><h3>Interfaccia web locale</h3><p>HTML, CSS e JavaScript serviti esclusivamente su <code>127.0.0.1</code>, protetti da un token di sessione. Selezione della cartella, configurazione della sede e del Corporate, generazione, gestione dei dati e una pagina dedicata per provare Nominatim e OpenTripPlanner senza conservare indirizzi o percorsi.</p></div><span>Browser</span></article>
+        <article><b>02</b><div><h3>Orchestrazione adattiva</h3><p>La cartella selezionata è il confine del progetto. Il nome del file non decide il suo ruolo: struttura dei fogli, intestazioni e contenuti riconoscono questionari, piani precedenti, documenti e GTFS. Alias controllati normalizzano suffissi societari e variazioni come HQ o Plant; gli adattamenti sono mostrati, le ambiguità rifiutate.</p></div><span>Python</span></article>
+        <article><b>03</b><div><h3>Analisi e continuità</h3><p><code>openpyxl</code> ricalcola gli aggregati di ogni campagna; <code>pypdf</code> e i lettori Open XML ispezionano la sola sezione progettuale dei PSCL PDF, DOCX e PPTX. Il motore costruisce serie, delta e una verifica descrittiva del segno con pagina, slide o paragrafo fonte.</p></div><span>Dati aggregati</span></article>
+        <article><b>04</b><div><h3>Indirizzi, rete e itinerari</h3><p>Nominatim geocodifica in locale gli indirizzi OSM. Osmium Tool ritaglia il solo territorio pubblico della sede e <code>PyOsmium</code> legge quel file circoscritto; OpenTripPlanner combina rete OSM e orari GTFS/NeTEx per i calcoli multimodali.</p></div><span>PostGIS + Java</span></article>
+        <article><b>05</b><div><h3>Cartografia e documenti</h3><p>ReportLab e Pillow producono i tre PDF. Il piano Web carica sulla GPU rete OSM e flussi aggregati; Canvas disegna aree, etichette orientate sulle strade e ogni simbolo pubblico come oggetto distinto. Tutto resta nel singolo file.</p></div><span>3 PDF + 1 HTML</span></article>
+        <article><b>06</b><div><h3>Assistenza AI controllata</h3><p>Il plugin MCP locale espone quattordici operazioni semantiche: evidenze aggregate, bozze editoriali, interventi, validazione, export e controllo degli input di rete. Quest’ultimo usa soltanto OTP in loopback, non restituisce origini o itinerari e il server impone <code>review_only</code>: zero modelli addestrati.</p></div><span>MCP locale</span></article>
+      </div>
+      <div class="source-detail" aria-label="Configurazione condivisa tra webapp e assistente">
+        <article><h3>Webapp e plugin → impostazioni condivise</h3><p><code>.mobilitymanager/settings.json</code>, nella cartella scelta, registra indirizzo e coordinate pubbliche della sede, quadrato di dettaglio da 1 × 1 a 10 × 10 km, copertura iniziale dei flussi Web dal 75% al 100% (90% consigliato), colori e fotografie Corporate. Il salvataggio è atomico e controlla la revisione: una schermata non aggiornata non sovrascrive una modifica più recente.</p></article>
+        <article><h3>Sito ufficiale → proposta → conferma</h3><p>Un’acquisizione esplicita legge HTML e al massimo due fogli di stile, propone colori e immagini dello stesso dominio e lascia la scelta all’operatore. Solo HTTPS pubblico, indirizzi di rete verificati e dimensioni limitate; le fotografie selezionate ricevono fonte, checksum e cache locale. Non è una certificazione del marchio né dei diritti d’uso.</p></article>
+      </div>
+      <div class="rail-focus"><div><span>TRE AZIONI, TRE CONTRATTI</span><h3>Controllare non significa stimare.</h3></div><p><strong>Analizza senza stimare</strong> calcola copertura OTP, costi, disponibilità dichiarate e prontezza del campione. <strong>Calcola le alternative e confronta</strong> conserva il laboratorio predittivo precedente. <strong>Calcola e stima</strong> attiva il modello di utilità solo dopo una configurazione sperimentale completa, confermata e ancora coerente con Excel e questionario. Backend e browser rifiutano l’attivazione contemporanea di analisi e stima.</p></div>
+    </section>
+
+    <section class="data-lifecycle" id="pacchetto-dati">
+      <div class="section-kicker light">UN PRODOTTO, DATI SEPARATI</div>
+      <div class="tech-heading"><h2>Nominatim e OTP sono gestiti dall’app.<br>Gli indici nascono sulla macchina.</h2><p>Scaricare MobilityManager significa avere un unico prodotto che installa e controlla entrambi i motori. Non significa incorporare una copia statica di tutta l’Italia: la webapp rileva ciò che esiste, lo spazio disponibile e propone l’azione corretta.</p></div>
+      <div class="setup-flow" aria-label="Ciclo di installazione e aggiornamento dei dati">
+        <article><b>01</b><span>PRIMO AVVIO</span><h3>Installa i motori e i dati italiani</h3><p>Se la macchina è nuova, l’app può preparare Nominatim da solo oppure l’intero pacchetto con OpenTripPlanner e richiede almeno 80 GB liberi. Nominatim usa WSL2: la virtualizzazione Intel VT-x/AMD-V deve essere attiva nel BIOS/UEFI.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><b>02</b><span>PREPARAZIONE LOCALE</span><h3>Valida, indicizza e costruisce</h3><p>Lo stesso OSM Italia alimenta l’indice Nominatim e il grafo OTP. Per le mappe, l’operatore prepara soltanto la sede scelta: Osmium crea un piccolo estratto riutilizzabile e Python non carica la rete nazionale.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><b>03</b><span>USO ORDINARIO</span><h3>Lavora anche offline</h3><p>L’app riavvia gli indici già presenti senza download e verifica realmente le API locali. Nominatim è dichiarato pronto soltanto dopo il controllo del database, dell’API e di una ricerca pubblica fissa; “Aggiorna i dati italiani” resta un’operazione separata e richiesta dall’utente.</p></article>
+      </div>
+      <div class="implementation-ledger">
+        <article><span>PROGRAMMA</span><h3>Codice, interfaccia e motori</h3><p>Pacchetto Python, asset Web, plugin MCP e operatori Nominatim/OpenTripPlanner. È la parte distribuibile; non contiene il dataset nazionale.</p></article>
+        <article><span>RUNTIME TERRITORIALE</span><h3>Dati condivisi sulla macchina</h3><p>OSM Italia, database PostgreSQL/PostGIS di Nominatim, GTFS/NeTEx, Java e grafo OpenTripPlanner. L’ingombro varia e viene misurato dalla webapp.</p></article>
+        <article><span>PROGETTO PSCL</span><h3>Dati dell’azienda</h3><p>Questionari, allegati, piani precedenti, impostazioni della sede e cartelle di output. Restano separati dal runtime nazionale e non vengono inclusi negli aggiornamenti. Le immagini sono memorizzate nella cache della macchina: per un altro PC occorre riacquisirle o trasferire anche la cache.</p></article>
+      </div>
+    </section>
+
+    <section class="offline-section" id="offline">
+      <div class="section-kicker light">OFFLINE, DAVVERO</div>
+      <div class="tech-heading"><h2>Cosa continua a funzionare senza Internet.</h2><p>“Offline” significa usare ciò che è già acquisito sulla macchina. Non significa fingere che una rete o un orario vecchio siano aggiornati.</p></div>
+      <div class="offline-grid">
+        <article class="offline-yes"><span>FUNZIONA OFFLINE</span><ul><li>Lettura dei questionari e serie storiche su due o più campagne</li><li>Geocoding di sede e dipendenti se l’indice Nominatim Italia è installato</li><li>Indicatori, distribuzioni, emissioni e misure progettuali</li><li>Creazione dei tre PDF e del piano web autonomo</li><li>Consultazione interattiva del piano web senza server o Internet</li><li>Mappe da atlanti OSM già estratti</li><li>Itinerari se il grafo OTP e gli orari sono già installati</li><li>Flussi stradali già calcolati, riutilizzati dalla cache aggregata con il taglio dei primi 100 m anche quando OTP è spento</li><li>Immagini aziendali e degli hub già revisionate e memorizzate</li></ul></article>
+        <article class="offline-online"><span>RICHIEDE INTERNET</span><ul><li>Prima acquisizione o aggiornamento dell’estratto OSM Italia</li><li>Download dei feed GTFS ufficiali e del NeTEx nazionale Trenitalia</li><li>Nuove fotografie, fonti pubbliche, PUMS e norme non ancora archiviate</li><li>Profilo corporate di una nuova azienda ricavato dal sito ufficiale</li><li>Controlli puntuali facoltativi con ViaggiaTreno o Google Maps</li></ul></article>
+      </div>
+      <div class="new-company"><b>Nuova azienda</b><p>Se OSM Italia e l’indice Nominatim sono presenti, l’indirizzo della nuova sede e quelli dei dipendenti vengono geocodificati localmente. Il comando “Prepara o aggiorna la mappa” ritaglia e conserva soltanto il territorio utile alla sede, senza un nuovo download nazionale e senza trattenere i nodi d’Italia nella memoria Python. Internet serve per nuove fonti, orari e fotografie. La conversazione Astra/Sol richiede la connessione del suo servizio e riceve solo il contesto aggregato previsto dal plugin; indirizzi e coordinate individuali non le vengono esposti.</p></div>
+    </section>
+
+    <section class="section transport-tech" id="trasporti">
+      <div class="section-kicker">IL MOTORE TRASPORTISTICO</div>
+      <div class="tech-heading"><h2>L’indirizzo non è la rete.<br>La rete non è l’orario.</h2><p>MobilityManager mantiene separati geocoding, geometrie e servizio programmato, registra la fonte di ciascun livello e li combina soltanto nei motori locali.</p></div>
+      <div class="transport-layers">
+        <article><span>RICERCA INDIRIZZI</span><h3>Nominatim 5.3</h3><p>Si installa e si ripara dalla pagina Dati territoriali, indicizza localmente civici, edifici, strade e località presenti in OSM Italia e serve l’API soltanto su 127.0.0.1. Nessun indirizzo dei dipendenti viene inviato al servizio pubblico OSMF.</p></article>
+        <i aria-hidden="true">+</i>
+        <article><span>RETE E SERVIZIO</span><h3>OSM + GTFS + NeTEx</h3><p>Geometrie, fermate, linee, corse e orari. I feed sono acquisiti e validati soltanto su richiesta; OSM da solo non certifica frequenze.</p></article>
+        <i aria-hidden="true">→</i>
+        <article class="transport-result"><span>CALCOLO LOCALE</span><h3>OpenTripPlanner 2.9</h3><p>Il grafo italiano combina rete e orari per percorsi a piedi, in bici, in auto e con il trasporto pubblico. Il servizio è accessibile solo in loopback, viene caricato su richiesta con un limite di heap di 20 GiB e può essere spento a calcolo concluso senza perdere il grafo.</p></article>
+      </div>
+      <div class="transport-pipeline" aria-label="Fasi dell'aggiornamento trasportistico">
+        <span>1 · verifica OSM Italia</span><i>→</i><span>2 · indicizza gli indirizzi</span><i>→</i><span>3 · valida GTFS e NeTEx</span><i>→</i><span>4 · costruisce il grafo</span><i>→</i><span>5 · avvia Nominatim e OTP in loopback</span>
+      </div>
+      <div class="rail-focus"><div><span>TEST RETE LOCALE</span><h3>Due indirizzi, quattro modalità, nessun dato conservato.</h3></div><p>La sesta pagina della webapp mostra se Nominatim e OpenTripPlanner sono realmente attivi, cerca fino a cinque risultati nell’indice italiano locale e calcola alternative a piedi, in bici, in auto o con il trasporto pubblico per una data e un’ora esplicite. Gli endpoint sono fissi in loopback: la pagina non accetta servizi esterni e non salva query, punti o geometrie.</p></div>
+      <div class="rail-focus"><div><span>FERROVIA NAZIONALE</span><h3>Trenitalia: NeTEx per la pianificazione, ViaggiaTreno per il controllo.</h3></div><p>Il NeTEx nazionale viene acquisito dal National Access Point italiano e integrato nel ciclo di aggiornamento. ViaggiaTreno è usato, quando richiesto, per verifiche operative puntuali su numero treno o partenze: non sostituisce un feed di pianificazione e non riceve origini domiciliari.</p></div>
+      <div class="source-detail">
+        <article><h3>Come scegliamo i feed</h3><p>Il ciclo nazionale interroga il catalogo Mobility Database e adotta i feed italiani correnti marcati come ufficiali e scaricabili senza autenticazione. I GTFS presenti nella cartella del progetto vengono aggiunti dopo la stessa verifica strutturale.</p></article>
+        <article><h3>Cosa succede se manca una città</h3><p>OSM può mostrare linee e fermate mappate, ma non inventa orari. Senza un GTFS o NeTEx utilizzabile il piano dichiara il limite: la cartografia resta disponibile, mentre il routing TPL non viene presentato come completo.</p></article>
+      </div>
+    </section>
+
+    <section class="map-tech" id="mappe">
+      <div class="map-tech-copy"><div class="section-kicker light">CARTOGRAFIA</div><h2>Cinque letture, zoom continuo.</h2><p>La preparazione della mappa è un’azione esplicita per la sede selezionata: Osmium Tool legge il PBF condiviso, salva un ritaglio territoriale circoscritto e il costruttore dell’atlante lavora soltanto su quello. Nei PDF ogni tema usa una scheda coerente: mappa a sinistra, dati e inventario a destra. Nel piano Web il quadrato di dettaglio attorno alla sede è configurabile; strade locali e servizi restano al suo interno, mentre autostrade, tangenziali e assi principali proseguono fino al bacino configurato dei dipendenti. I nomi stradali spariscono alle scale lontane e, nel dettaglio, seguono le curve della strada carattere per carattere; ogni pupazzetto resta visibile come elemento distinto e la targhetta compatta compare agli zoom di dettaglio. Il cartiglio Dettaglio/90%/Tutti è stato eliminato: l’inquadratura iniziale resta automatica e poi si esplora liberamente con zoom, trascinamento e ripristino. Nessuna interazione dipende da tile o servizi remoti.</p></div>
+      <div class="map-verticals">
+        <article><b>01</b><h3>Auto e sosta</h3><p>Accessi stradali, parcheggi, scambio e ricarica.</p></article>
+        <article><b>02</b><h3>Trasporto pubblico</h3><p>Linee, metro, tram, bus e stazioni vicine.</p></article>
+        <article><b>03</b><h3>Piedi e bici</h3><p>Marciapiedi, percorsi pedonali, ciclabili e sosta bici.</p></article>
+        <article><b>04</b><h3>Contesto urbano</h3><p>Commercio, ristorazione, salute e servizi collettivi.</p></article>
+      </div>
+      <div class="flow-note"><strong>Flussi casa–lavoro</strong><p>Le origini sono instradate localmente. Prima dell’aggregazione vengono eliminati esattamente i primi 100 metri di ogni percorso; ogni dipendente vale uno sui tratti residui. Lo spessore cresce in proporzione alla convergenza, su uno sfondo cartografico riconoscibile. Né i PDF né l’HTML contengono case, indirizzi o punti di partenza.</p></div>
+    </section>
+
+    <section class="section output-safety">
+      <div class="section-kicker">SCRITTURA SICURA</div><div class="tech-heading"><h2>Una cartella per piano. Quattro elaborati pubblicati insieme.</h2><p>Il generatore crea una sottocartella <strong>PSCL-Azienda-Sede-Anno</strong> accanto agli input e prepara Corporate, MobilityManager, relazione e piano web in un’area temporanea al suo interno. Solo dopo avere verificato l’intero set sostituisce i quattro file finali. Se qualcosa fallisce, il set precedente viene ripristinato. Nessun input viene cancellato o rinominato.</p></div>
+      <div class="source-detail">
+        <article><h3>Interventi distinti per campagna</h3><p>L’editor della webapp permette di modificare e riordinare da uno a dodici interventi con motivazione, azione, responsabile, orizzonte, priorità e indicatore. Le scelte sono salvate per sede e anno nello stesso file di configurazione e riutilizzate negli export del plugin. I calcoli non vengono modificati; le proposte non diventano automaticamente impegni approvati o effetti simulati.</p></article>
+        <article><h3>Revisioni AI accanto ai documenti finali</h3><p>Il plugin prepara i tre PDF e l’HTML in un’area temporanea e rende visibile il pacchetto completo in <code>PSCL-Azienda-Sede-Anno/AI-revisions/</code>. Ogni esportazione conserva una propria cartella e un manifesto di revisione. La webapp elenca le copie complete come bozze da verificare, senza sostituire i quattro file finali.</p></article>
+      </div>
+      <a class="button button-primary" href="http://mobilitymanager.localhost:8765/">Apri MobilityManager locale</a>
+    </section>
+  </main>
+  <footer><span>MobilityManager · Architettura tecnica</span><a href="index.html">Torna al prodotto</a><span>Local first · Fonti dichiarate</span></footer>
+</body>
+</html>

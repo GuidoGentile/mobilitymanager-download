@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 74" role="img" aria-labelledby="title desc">
+  <title id="title">Mobility Manager</title>
+  <desc id="desc">Vector redraw of the historical rounded m, network globe and wordmark. Transparent background; no embedded bitmap or font dependency.</desc>
+  <g id="mobility-manager" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Historical rounded m: two arches with a shared upright. -->
+    <path stroke-width="9" d="M9 43V24C9 9 31 9 31 24V43M31 24C31 9 53 9 53 24V43"/>
+    <!-- The network globe is intentionally open, not a filled badge. -->
+    <g transform="translate(66 39) rotate(24)" stroke-width="1.15">
+      <circle r="10"/>
+      <ellipse rx="4.7" ry="10"/>
+      <path d="M-9-4.5Q0-7.3 9-4.5M-10 0H10M-9 4.5Q0 7.3 9 4.5M0-10V10"/>
+    </g>
+    <!-- Rounded, outlined wordmark. Every glyph is geometry, not SVG text. -->
+    <g stroke-width="4.5">
+      <path d="M96 43V33C96 25 108 25 108 33V43M108 33C108 25 120 25 120 33V43"/>
+      <path d="M145 35.5A8 8 0 1 1 129 35.5A8 8 0 1 1 145 35.5Z"/>
+      <path d="M155 15V35.5A8 8 0 1 0 171 35.5A8 8 0 1 0 155 35.5"/>
+      <path d="M181 29V43M192 15V43M203 29V43M217 18V37Q217 44 224 42M213 28H224M234 28L242 43M250 28L239 53"/>
+    </g>
+    <g fill="currentColor" stroke="none">
+      <circle cx="181" cy="18" r="2.45"/>
+      <circle cx="203" cy="18" r="2.45"/>
+    </g>
+    <g stroke-width="1.45" transform="translate(96 57)">
+      <path d="M0 8V0L3.5 5L7 0V8M12 8L15.5 0L19 8M13.4 5H17.6M24 8V0L31 8V0M36 8L39.5 0L43 8M37.4 5H41.6M54 1C48-2 47 2 47 4C47 8 50 9 54 7V4H51M66 0H60V8H66M60 4H65M72 8V0H76C81 0 81 4 76 4H72M76 4L80 8"/>
+    </g>
+  </g>
+</svg>

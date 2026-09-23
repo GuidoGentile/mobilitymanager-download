@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MobilityManager trasforma questionari, dati territoriali e fonti pubbliche in Piani degli Spostamenti Casa-Lavoro verificabili, con due presentazioni e una relazione narrativa.">
+  <meta name="theme-color" content="#06344f">
+  <title>MobilityManager — Dal questionario al PSCL</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand-logo.svg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260915-release-blue">
+  <script src="assets/app.js?v=20260915-release-blue" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="MobilityManager, torna all'inizio">
+      <span class="brand-logo" aria-hidden="true"></span>
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="#scarica">Scarica</a>
+      <a href="#prodotto">Prodotto</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#sistema">Sistema</a>
+      <a href="tecnologia.html">Tecnologia</a>
+    </nav>
+    <a class="header-action" href="https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev36/MobilityManager-Setup-0.1.0-dev36-x64.exe">Scarica per Windows <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main id="contenuto">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-image" src="assets/mobility-network-hero-refined.png" width="1672" height="941" fetchpriority="high" alt="Vista aerea serale di una città italiana immaginaria, attraversata da percorsi pedonali, ciclabili, ferroviari e di trasporto pubblico.">
+      <div class="hero-scrim"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> PSCL ENGINE · LOCAL FIRST</p>
+        <h1 id="hero-title">Dal questionario<br>al piano che <em>muove</em><br>le decisioni.</h1>
+        <p class="hero-lede">Una piattaforma che legge le campagne di mobilità, ricostruisce il territorio, misura i comportamenti e genera quattro output coordinati: due presentazioni, una relazione narrativa e un piano web locale interattivo.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev36/MobilityManager-Setup-0.1.0-dev36-x64.exe">Scarica per Windows</a>
+          <a class="button button-ghost" href="#prodotto">Scopri il prodotto</a>
+        </div>
+        <p class="hero-download-note">Versione di test 0.1.0-dev36 · Windows x64 · 21,7 MiB · date OTP con fuso corretto · mappa Test rete locale · controllo selettivo GTFS · installer non firmato</p>
+      </div>
+      <div class="hero-proof" aria-label="Stato del prototipo">
+        <div><strong>01</strong><span>analisi condivisa</span></div>
+        <div><strong>04</strong><span>output coordinati</span></div>
+        <div><strong>100 m</strong><span>rimossi da ogni origine</span></div>
+      </div>
+    </section>
+
+    <section class="download-strip" id="scarica" aria-labelledby="download-title">
+      <div>
+        <div class="section-kicker">PROVA MOBILITYMANAGER</div>
+        <h2 id="download-title">Portalo su un altro PC.</h2>
+        <p>L’installer contiene l’applicazione, il runtime Python e il plugin locale con quattordici comandi MCP. Crea un collegamento desktop MobilityManager con icona e launcher dedicati: Python resta un componente interno e non compare come applicazione. Se MobilityManager è già presente, chiude soltanto il suo runtime Python incorporato e sostituisce automaticamente la versione precedente senza riavviare Windows né cancellare progetti, impostazioni o dati territoriali. Gli altri Python installati sul PC non vengono toccati. La cartella progetto viene ricordata e il collegamento Codex usa sempre il runtime incorporato. Il plugin elenca soltanto questionari dipendenti validi e gestisce i blocchi temporanei delle cartelle sincronizzate durante l’export. Un’importazione Nominatim interrotta può essere ripresa senza riavviare il PC: MobilityManager chiude esclusivamente le proprie sessioni residue e ricostruisce il database temporaneo. Prima di OTP, i GTFS vengono controllati e riparati alla scala minima: si escludono solo righe, corse o linee incoerenti con i relativi record dipendenti, mantenendo il resto della rete. Orari malformati, sequenze duplicate o corse che tornano indietro nel tempo fermano soltanto la corsa interessata. Ogni intervento è registrato e l’originale resta recuperabile. I dati nazionali non sono inclusi e vengono installati separatamente dalla pagina Dati territoriali.</p>
+      </div>
+      <div class="download-card">
+        <div class="download-meta"><strong>0.1.0-dev36</strong><span>Windows x64 · 21,7 MiB</span></div>
+        <a class="button button-primary" href="https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev36/MobilityManager-Setup-0.1.0-dev36-x64.exe">Scarica l’installer</a>
+        <p><strong>Build di test non firmata.</strong> Windows può mostrare un avviso di protezione. Verifica il file prima di eseguirlo.</p>
+        <code>SHA-256<br>caf619c0dadb4001d8152c31e4205bff6a3c5858249d286f1b2f4d2c44a18db9</code>
+        <div class="download-links"><a href="downloads/MobilityManager-Setup-0.1.0-dev36-x64.sha256.txt" download>Scarica checksum</a><a href="downloads/MobilityManager-Setup-0.1.0-dev36-x64.json" download>Apri manifest</a></div>
+      </div>
+    </section>
+
+    <section class="intro section" id="prodotto" aria-labelledby="intro-title">
+      <div class="section-kicker">IL PRODOTTO</div>
+      <div class="intro-grid">
+        <h2 id="intro-title">Il PSCL smette di essere un documento assemblato a mano.</h2>
+        <div class="intro-copy">
+          <p>MobilityManager organizza in un unico processo i questionari dei dipendenti, i piani precedenti, i documenti aziendali e le fonti territoriali. Riconosce i file dal contenuto anche quando nomi di fogli, intestazioni, azienda o sede cambiano in modo ragionevole; i calcoli restano ripetibili e la continuità tra gli anni diventa verificabile.</p>
+          <p class="accent-copy">L’obiettivo non è produrre più pagine. È rendere leggibile il rapporto tra persone, sede, rete di trasporto e azioni possibili.</p>
+        </div>
+      </div>
+
+      <div class="pipeline" aria-label="Flusso di produzione del piano">
+        <article>
+          <span class="step">01</span>
+          <h3>Una cartella progetto</h3>
+          <p>Excel delle risposte, campagne storiche, piano precedente, GTFS e documenti di contesto.</p>
+        </article>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <article>
+          <span class="step">02</span>
+          <h3>Un’analisi locale</h3>
+          <p>Indicatori, confronto annuale, emissioni, mappe e flussi aggregati. Interventi modificabili per sede e campagna, separati dai calcoli.</p>
+        </article>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <article>
+          <span class="step">03</span>
+          <h3>Quattro elaborati</h3>
+          <p>Due presentazioni, una relazione parlata e un file web interattivo, con gli stessi dati, schemi e fonti.</p>
+        </article>
+      </div>
+      <div class="local-app-callout">
+        <div><span>WEBAPP LOCALE</span><h3>Sei pagine, un processo leggibile.</h3><p>Progetto, questionari, campagna, documenti, dati territoriali e test della rete sono ambienti distinti. La pagina Test rete verifica direttamente Nominatim e OpenTripPlanner con una ricerca indirizzi e un itinerario locale, senza salvare i dati di prova. Nella campagna configuri sede e mappe e scegli colori e foto proposti dal sito aziendale. Webapp e assistente riutilizzano le impostazioni salvate nel progetto. Ogni azienda, sede e anno produce una sottocartella dedicata con tre PDF e un piano web autonomo.</p></div>
+        <div class="local-app-actions"><a class="button button-primary" href="http://mobilitymanager.localhost:8765/">Apri la webapp locale</a><a href="tecnologia.html#pacchetto-dati">Come si installano i dati →</a><small>Il collegamento si apre solo quando MobilityManager è già avviato sul computer.</small></div>
+      </div>
+    </section>
+
+    <section class="editions section-dark" id="metodo" aria-labelledby="editions-title">
+      <div class="section-kicker light">DUE EDIZIONI, UNA SOLA VERITÀ</div>
+      <div class="edition-heading">
+        <h2 id="editions-title">La forma cambia.<br>I dati no.</h2>
+        <div class="edition-tabs" role="tablist" aria-label="Confronta le edizioni">
+          <button class="edition-tab active" type="button" role="tab" aria-selected="true" aria-controls="edition-preview" data-edition="corporate">Corporate</button>
+          <button class="edition-tab" type="button" role="tab" aria-selected="false" aria-controls="edition-preview" data-edition="technical">MobilityManager</button>
+        </div>
+      </div>
+
+      <div class="edition-layout">
+        <div class="report-stage corporate" id="edition-preview" role="tabpanel" aria-live="polite">
+          <div class="report-page report-cover">
+            <div class="report-orbit"></div>
+            <small>PIANO DEGLI SPOSTAMENTI CASA-LAVORO</small>
+            <div>
+              <h3 data-preview-title>Edizione Corporate</h3>
+              <p data-preview-subtitle>Un racconto visivo vicino all’identità dell’azienda.</p>
+            </div>
+            <span>2026 · Sede di Milano</span>
+          </div>
+          <div class="report-page report-data">
+            <small>ACCESSIBILITÀ</small>
+            <h3>La sede dentro la rete</h3>
+            <div class="mini-map" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+              <b></b>
+            </div>
+            <div class="mini-bars"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+
+        <div class="edition-copy" data-edition-copy>
+          <p class="edition-number">01 — CORPORATE</p>
+          <h3>Un piano che sembra appartenere davvero all’azienda.</h3>
+          <p>Colori, geometrie e fotografie ufficiali vengono selezionati da un profilo editoriale verificato. Copertine e passaggi di capitolo hanno il respiro di un sito contemporaneo; la gerarchia tipografica resta controllata.</p>
+          <ul>
+            <li>Immagini ufficiali con fonte e impronta digitale</li>
+            <li>Stile dedicato, senza alterare indicatori o contenuti</li>
+            <li>Fallback grafico se una risorsa non è disponibile</li>
+          </ul>
+        </div>
+      </div>
+      <p class="narrative-output"><strong>03 — RELAZIONE NARRATIVA.</strong> Le stesse evidenze diventano un documento A4 da leggere: testo continuo, interpretazioni esplicite, didascalie, mappe, grafici, misure e fonti. Non cambia i calcoli e non perde la forza visiva del piano.</p>
+      <p class="narrative-output"><strong>04 — PIANO WEB LOCALE.</strong> Un solo file HTML, apribile senza server e senza Internet, rende navigabili mappe curate con simboli ed etichette, dal dettaglio della sede al bacino configurato e a tutti i flussi aggregati. I grafici sono selezionabili; schede individuali, punti casa e chiamate a servizi esterni restano esclusi.</p>
+    </section>
+
+    <section class="territory section" id="territorio" aria-labelledby="territory-title">
+      <div class="territory-copy">
+        <div class="section-kicker">IL TERRITORIO ENTRA NEL PIANO</div>
+        <h2 id="territory-title">Non solo risposte.<br>Reti, servizi e distanze reali.</h2>
+        <p>Nominatim trasforma localmente gli indirizzi in coordinate usando OSM Italia. OpenStreetMap descrive strade e infrastrutture; GTFS e NeTEx descrivono gli orari; OpenTripPlanner combina rete e servizio per gli itinerari.</p>
+        <p>L’unica applicazione gestisce Nominatim e OpenTripPlanner, ma non incorpora l’intero archivio territoriale. Al primo utilizzo la pagina <strong>Dati territoriali</strong> può installare autonomamente Nominatim, indicizzare gli indirizzi e verificare il servizio con una ricerca pubblica; l’installazione completa costruisce anche il grafo. Per una sede, l’azione <strong>Prepara o aggiorna la mappa</strong> crea un ritaglio OSM circoscritto e riutilizzabile: Python non carica la rete italiana. In seguito puoi riavviare i motori senza download oppure richiedere un aggiornamento delle fonti.</p>
+        <p>Per una verifica puntuale, l’operatore può controllare un numero di treno sul servizio pubblico ViaggiaTreno oppure aprire Google Maps con la sola sede come destinazione. Sono strumenti di controllo: non ricevono le origini dei dipendenti e non sostituiscono il calcolo locale.</p>
+        <div class="layer-controls" aria-label="Livelli della mappa concettuale">
+          <button type="button" class="layer active" data-layer="transit" aria-pressed="true">Trasporto pubblico</button>
+          <button type="button" class="layer active" data-layer="cycle" aria-pressed="true">Ciclabilità</button>
+          <button type="button" class="layer active" data-layer="services" aria-pressed="true">Servizi</button>
+        </div>
+      </div>
+
+      <div class="network-card" aria-label="Mappa concettuale dei livelli territoriali">
+        <svg viewBox="0 0 760 640" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Reti di mobilità attorno a una sede</title>
+          <desc id="map-desc">Linee di trasporto pubblico, ciclabili e servizi convergono verso una sede centrale.</desc>
+          <g class="street-grid">
+            <path d="M-20 110 C150 80 220 150 390 120 S650 45 790 90"/>
+            <path d="M-30 265 C150 215 285 320 430 270 S650 210 790 250"/>
+            <path d="M20 475 C170 410 250 500 410 450 S650 390 780 430"/>
+            <path d="M120 -20 C100 150 170 240 140 390 S95 560 135 680"/>
+            <path d="M330 -20 C350 120 300 245 365 370 S420 560 390 680"/>
+            <path d="M610 -20 C565 120 650 220 600 360 S540 540 620 680"/>
+          </g>
+          <g class="map-layer transit visible">
+            <path d="M10 540 C140 520 205 390 315 350 S500 310 725 90"/>
+            <circle cx="92" cy="505" r="9"/><circle cx="224" cy="400" r="9"/><circle cx="380" cy="335" r="9"/><circle cx="567" cy="230" r="9"/><circle cx="704" cy="112" r="9"/>
+          </g>
+          <g class="map-layer cycle visible">
+            <path d="M40 160 C170 175 210 250 335 285 S535 355 720 510"/>
+            <path d="M210 620 C240 500 340 430 385 330"/>
+          </g>
+          <g class="map-layer services visible">
+            <g transform="translate(168 182)"><circle r="18"/><path d="M-7 0h14M0-7v14"/></g>
+            <g transform="translate(590 420)"><circle r="18"/><path d="M-7 0h14M0-7v14"/></g>
+            <g transform="translate(510 112)"><circle r="18"/><path d="M-7 0h14M0-7v14"/></g>
+          </g>
+          <g class="workplace" transform="translate(385 330)">
+            <circle r="60"/><circle r="42"/><path d="M-18 17V-20h36v37M-7-8h4m10 0h4M-7 2h4m10 0h4"/>
+          </g>
+        </svg>
+        <div class="map-legend"><span><i class="legend-transit"></i> Linee e fermate</span><span><i class="legend-cycle"></i> Rete ciclabile</span><span><i class="legend-service"></i> Parcheggi e ricarica</span></div>
+      </div>
+    </section>
+
+    <section class="system-overview" id="sistema" aria-labelledby="system-title">
+      <div class="system-copy">
+        <div class="section-kicker light">COME CIRCOLANO I DATI</div>
+        <h2 id="system-title">Internet alimenta la base.<br>Il piano nasce in locale.</h2>
+        <p>Il confine è intenzionale: le fonti pubbliche entrano nel computer durante un’installazione o un aggiornamento esplicito; questionari, origini, analisi e documenti non escono dalla macchina.</p>
+        <a href="tecnologia.html" class="text-link">Apri architettura e dettagli implementativi →</a>
+      </div>
+      <div class="system-diagram" aria-label="Schema dell'architettura MobilityManager">
+        <article class="system-source"><span>SOLO QUANDO RICHIESTO</span><h3>Fonti pubbliche</h3><p>OSM Italia · GTFS ufficiali · NeTEx Trenitalia · fonti e immagini revisionate</p></article>
+        <div class="system-arrow" aria-hidden="true">↓</div>
+        <article class="system-runtime"><span>SULLA MACCHINA</span><h3>Pacchetto territoriale locale</h3><p>OSM Italia · indice Nominatim · feed validati · grafo OpenTripPlanner · atlanti di sede</p></article>
+        <div class="system-split" aria-hidden="true"><i></i><b>+</b><i></i></div>
+        <div class="system-bottom">
+          <article><span>PROGETTO RISERVATO</span><h3>Questionari e storico</h3><p>Excel, piani precedenti e documenti aziendali</p></article>
+          <article><span>ELABORAZIONE LOCALE</span><h3>Motore PSCL</h3><p>Analisi, itinerari, mappe, flussi e pubblicazione coordinata dei tre PDF e del piano web</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy section-dark" aria-labelledby="privacy-title">
+      <div class="privacy-rule" aria-hidden="true"><span></span><b>100 m</b><span></span></div>
+      <div class="privacy-grid">
+        <div>
+          <div class="section-kicker light">PRIVACY BY DESIGN</div>
+          <h2 id="privacy-title">Il flusso si vede.<br>La casa no.</h2>
+        </div>
+        <div class="privacy-copy">
+          <p>Ogni origine viene elaborata esclusivamente in locale. I primi 100 metri di ciascun itinerario vengono eliminati prima del conteggio, della cache e del disegno.</p>
+          <p>Non applichiamo una soglia ai rami condivisi: ogni dipendente vale uno su ogni tratto residuo. Nel PDF compaiono flussi aggregati sulla rete, mai punti casa, indirizzi, nomi o coordinate d’origine.</p>
+          <div class="privacy-tags" aria-label="Garanzie di privacy"><span>Elaborazione locale</span><span>Nessun punto origine</span><span>Nessun dato individuale all’AI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="decisions section" id="decisioni" aria-labelledby="decisions-title">
+      <div class="decision-heading">
+        <div>
+          <div class="section-kicker">LE SCELTE PROGETTUALI</div>
+          <h2 id="decisions-title">Principi prima delle funzioni.</h2>
+        </div>
+        <p>Le decisioni che tengono insieme qualità del piano, sicurezza dei dati e possibilità di evolvere verso simulazioni vere.</p>
+      </div>
+
+      <div class="decision-grid">
+        <article class="decision-card featured">
+          <span>01</span><h3>Local first</h3>
+          <p>Questionari, origini e calcoli sensibili restano sulla macchina. Il prodotto funziona senza dipendere da Google o da un servizio pubblico esterno.</p>
+        </article>
+        <article class="decision-card">
+          <span>02</span><h3>Una sola analisi</h3>
+          <p>Corporate, MobilityManager e relazione narrativa nascono dallo stesso oggetto analitico. Il formato non può filtrare dati, misure o fonti.</p>
+        </article>
+        <article class="decision-card">
+          <span>03</span><h3>Fonti aperte e sostituibili</h3>
+          <p>Nominatim, OSM, GTFS, NeTEx e OpenTripPlanner sono la base aperta e interoperabile. ViaggiaTreno e Google sono controlli facoltativi, isolati dai dati domiciliari.</p>
+        </article>
+        <article class="decision-card">
+          <span>04</span><h3>Tipografia come sistema</h3>
+          <p>Sei dimensioni, ruoli semantici e regole condivise. Il contenuto va a capo o pagina: non viene rimpicciolito per farlo entrare.</p>
+        </article>
+        <article class="decision-card">
+          <span>05</span><h3>AI con prove, non con licenza d’inventare</h3>
+          <p>Astra o Sol possono aiutare a scrivere e organizzare. Il plugin può anche chiedere un controllo trasportistico aggregato senza stima; numeri, percorsi e regole restano governati dal motore locale.</p>
+        </article>
+        <article class="decision-card">
+          <span>06</span><h3>Niente benefici fittizi</h3>
+          <p>Le azioni possono essere qualitative oggi. Le percentuali di impatto arriveranno solo quando saranno collegate a simulazioni validate.</p>
+        </article>
+        <article class="decision-card wide">
+          <span>07</span>
+          <div><h3>Continuità, non fotografie isolate</h3><p>Due o tre campagne diventano una serie unica anche quando file, fogli, suffisso societario o nome della sede cambiano leggermente. Ogni adattamento è visibile; i casi ambigui restano da confermare. Gli indirizzi rilevati nei piani precedenti vengono collegati al segno osservato, con fonte puntuale.</p></div>
+          <div class="delta-visual" aria-label="Esempio concettuale di serie storica"><b>2024</b><i></i><strong>2025</strong><i></i><strong>2026</strong><em>segno</em></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ai-section" aria-labelledby="ai-title">
+      <div class="ai-console" aria-hidden="true">
+        <div class="console-top"><span></span><span></span><span></span><b>MobilityManager · assistant</b></div>
+        <div class="console-thread">
+          <div class="prompt"><span>Tu</span><p>Prepara il piano 2026 per la sede di Milano e confrontalo con il 2025.</p></div>
+          <div class="response"><span>MM</span><div><p>Campagna riconosciuta. Analisi pronta su dati aggregati.</p><ul><li>Questionario corrente e storico collegati</li><li>Accessibilità e flussi aggiornati</li><li>Due presentazioni e relazione pronte per la revisione</li></ul></div></div>
+          <div class="console-status"><i></i> Evidenze collegate · nessun record individuale esposto</div>
+        </div>
+      </div>
+      <div class="ai-copy">
+        <div class="section-kicker light">AI ASSISTED, HUMAN OWNED</div>
+        <h2 id="ai-title">L’intelligenza artificiale collabora.<br>Il piano resta responsabile.</h2>
+        <p>Un plugin locale con quattordici comandi consente alla conversazione di ispezionare il progetto, controllare gli input OTP senza addestrare modelli, proporre testi, salvare revisioni motivate, validare ed esportare. Origini e itinerari individuali non vengono restituiti alla conversazione.</p>
+        <p>La pagina Questionari separa tre gesti: analisi degli input senza stima, confronto dei modelli già disponibili e stima sperimentale attivabile soltanto con ipotesi confermate. Nessuno dei tre adotta una politica o produce automaticamente quote modali future.</p>
+        <p class="ai-note">La responsabilità editoriale, analitica e di pubblicazione resta al Mobility Manager e all’azienda.</p>
+      </div>
+    </section>
+
+    <section class="roadmap section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-kicker">DAL PROTOTIPO ALLA SIMULAZIONE</div>
+      <h2 id="roadmap-title">Costruiamo prima una base credibile.<br>Poi misuriamo cosa cambia davvero.</h2>
+      <div class="roadmap-track">
+        <article class="current"><span>ORA</span><h3>PSCL, serie e controllo degli input</h3><p>Questionari pluriennali, mappe, flussi, grafici di tendenza, tre PDF, piano web interattivo e verifica aggregata della base trasportistica senza stima.</p></article>
+        <article><span>IN ESTENSIONE</span><h3>Revisione documentale</h3><p>Il software estrae dai PSCL precedenti indirizzi candidati e pagine fonte. Piani d’area e decisioni aziendali richiederanno lo stesso passaggio di conferma strutturata.</p></article>
+        <article><span>LABORATORIO</span><h3>Stima sperimentale separata</h3><p>Un modello di utilità può essere provato solo con campione, disponibilità, costi e specificazione confermati. Non è ancora una previsione delle politiche.</p></article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div>
+        <p class="eyebrow"><span></span> MOBILITYMANAGER</p>
+        <h2 id="closing-title">Un piano leggibile.<br>Una mobilità misurabile.</h2>
+      </div>
+      <p>Il prodotto è oggi un prototipo operativo per revisione. Adozione, validazione analitica completa e pubblicazione richiedono il controllo umano previsto dal processo.</p>
+      <a href="#top" aria-label="Torna all'inizio">↑</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>MobilityManager · PSCL Generator</span>
+    <span>Dati locali · Fonti dichiarate · Decisioni verificabili</span>
+    <span>Prototipo 2026</span>
+  </footer>
+</body>
+</html>
