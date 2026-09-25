@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#06344f">
   <title>MobilityManager — Dal questionario al PSCL</title>
   <link rel="icon" type="image/svg+xml" href="assets/brand-logo.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20260915-release-blue">
+  <link rel="stylesheet" href="assets/styles.css?v=20260925-simple-download">
   <script src="assets/app.js?v=20260915-release-blue" defer></script>
 </head>
 <body>
@@ -17,13 +17,12 @@
       <span class="brand-logo" aria-hidden="true"></span>
     </a>
     <nav aria-label="Navigazione principale">
-      <a href="#scarica">Scarica</a>
       <a href="#prodotto">Prodotto</a>
       <a href="#metodo">Metodo</a>
       <a href="#sistema">Sistema</a>
       <a href="tecnologia.html">Tecnologia</a>
     </nav>
-    <a class="header-action" href="https://github.com/GuidoGentile/mobilitymanager-download/releases">Release Windows <span aria-hidden="true">↓</span></a>
+    <a class="header-action" href="#scarica">Installazione <span aria-hidden="true">↓</span></a>
   </header>
 
   <main id="contenuto">
@@ -35,10 +34,10 @@
         <h1 id="hero-title">Dal questionario<br>al piano che <em>muove</em><br>le decisioni.</h1>
         <p class="hero-lede">Una piattaforma che legge le campagne di mobilità, ricostruisce il territorio, misura i comportamenti e genera quattro output coordinati: due presentazioni, una relazione narrativa e un piano web locale interattivo.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="https://github.com/GuidoGentile/mobilitymanager-download/releases">Vedi le release Windows</a>
+          <a class="button button-primary" href="https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev39/MobilityManager-Setup-0.1.0-dev39-x64.exe">Scarica per Windows</a>
           <a class="button button-ghost" href="#prodotto">Scopri il prodotto</a>
         </div>
-        <p class="hero-download-note">Versione di test 0.1.0-dev39 · Windows x64 · 21,7 MiB · installer non firmato · download disponibile</p>
+        <p class="hero-download-note">Windows a 64 bit · 21,7 MiB · Versione di test 0.1.0-dev39</p>
       </div>
       <div class="hero-proof" aria-label="Stato del prototipo">
         <div><strong>01</strong><span>analisi condivisa</span></div>
@@ -49,16 +48,23 @@
 
     <section class="download-strip" id="scarica" aria-labelledby="download-title">
       <div>
-        <div class="section-kicker">PROVA MOBILITYMANAGER</div>
-        <h2 id="download-title">Portalo su un altro PC.</h2>
-        <p>L’installer contiene l’applicazione, il runtime Python e il plugin locale con quattordici comandi MCP. Crea un collegamento desktop MobilityManager con icona e launcher dedicati: Python resta un componente interno e non compare come applicazione. Se MobilityManager è già presente, chiude soltanto il suo runtime Python incorporato e sostituisce automaticamente la versione precedente senza riavviare Windows né cancellare progetti, impostazioni o dati territoriali. Gli altri Python installati sul PC non vengono toccati. La cartella progetto viene ricordata e il collegamento Codex usa sempre il runtime incorporato. Il plugin elenca soltanto questionari dipendenti validi e gestisce i blocchi temporanei delle cartelle sincronizzate durante l’export. Un’importazione Nominatim interrotta può essere ripresa senza riavviare il PC: MobilityManager chiude esclusivamente le proprie sessioni residue e ricostruisce il database temporaneo. Prima di OTP, i GTFS vengono controllati e riparati alla scala minima: si escludono solo righe, corse o linee incoerenti con i relativi record dipendenti, mantenendo il resto della rete. Orari malformati, sequenze duplicate o corse che tornano indietro nel tempo fermano soltanto la corsa interessata. Ogni intervento è registrato e l’originale resta recuperabile. L’aggiornamento dei dati italiani tollera i blocchi temporanei di Windows sul file di avanzamento. I dati nazionali non sono inclusi e vengono installati separatamente dalla pagina Dati territoriali.</p>
+        <div class="section-kicker">INSTALLAZIONE</div>
+        <h2 id="download-title">Pronto sul tuo PC.</h2>
+        <p>Il pacchetto include MobilityManager e il collegamento all’assistente. Se hai già una versione installata, l’aggiornamento conserva progetti, impostazioni e dati territoriali.</p>
       </div>
       <div class="download-card">
-        <div class="download-meta"><strong>0.1.0-dev39</strong><span>Windows x64 · 21,7 MiB</span></div>
-        <a class="button button-primary" href="https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev39/MobilityManager-Setup-0.1.0-dev39-x64.exe">Scarica installer Windows</a>
-        <p><strong>Download dev39 disponibile.</strong> Avvio Nominatim più robusto e diagnostica migliorata. La build di test non è firmata; Windows può mostrare un avviso di protezione. Verifica il file prima di eseguirlo.</p>
-        <code>SHA-256<br>03d311deb12c21df756a32322aaf37b12012ae0c823c1c67f9492ccb65baa213</code>
-        <div class="download-links"><a href="downloads/MobilityManager-Setup-0.1.0-dev39-x64.sha256.txt" download>Scarica checksum</a><a href="downloads/MobilityManager-Setup-0.1.0-dev39-x64.json" download>Apri manifest</a></div>
+        <h3>Dopo il download</h3>
+        <ol class="installation-steps">
+          <li>Apri l’eseguibile e segui l’installazione.</li>
+          <li>Avvia MobilityManager dall’icona sul desktop.</li>
+          <li>Al primo utilizzo, prepara i dati italiani dalla pagina <strong>Dati territoriali</strong> dell’app.</li>
+        </ol>
+        <p>La versione di test non è firmata digitalmente: Windows può mostrare un avviso di protezione.</p>
+        <details class="package-details">
+          <summary>Dettagli e verifica del file</summary>
+          <code>SHA-256<br>03d311deb12c21df756a32322aaf37b12012ae0c823c1c67f9492ccb65baa213</code>
+          <div class="download-links"><a href="downloads/MobilityManager-Setup-0.1.0-dev39-x64.sha256.txt" download>File di verifica</a><a href="downloads/MobilityManager-Setup-0.1.0-dev39-x64.json" download>Informazioni sul pacchetto</a></div>
+        </details>
       </div>
     </section>
 

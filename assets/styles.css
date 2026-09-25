@@ -94,6 +94,13 @@ nav a:hover, nav a:focus-visible { color: var(--white); }
 .download-card > p { margin: 1.2rem 0; color: var(--muted); font-size: .86rem; }.download-card > p strong { color: #a83f52; }
 .download-card code { display: block; overflow-wrap: anywhere; padding: .85rem; color: #27495c; border-radius: .7rem; background: #e8f3f7; font-family: Consolas, monospace; font-size: .68rem; line-height: 1.55; }
 .download-links { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; }.download-links a { color: var(--green); font-size: .78rem; font-weight: 750; }
+.download-strip { scroll-margin-top: 76px; }
+.download-card h3 { margin: 0 0 1rem; font-size: 1.35rem; color: var(--deep); }
+.installation-steps { margin: 0 0 1.5rem; padding-left: 1.3rem; color: #36586b; }
+.installation-steps li + li { margin-top: .65rem; }
+.package-details { margin-top: 1.5rem; padding-top: .75rem; border-top: 1px solid var(--line); }
+.package-details summary { padding: .5rem 0; cursor: pointer; font-size: .82rem; font-weight: 650; color: var(--green); }
+.package-details[open] summary { margin-bottom: .65rem; }
 
 .section { max-width: var(--max); margin: auto; padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 4vw, 2rem); }
 .section-dark { color: var(--white); background: var(--deep); }
