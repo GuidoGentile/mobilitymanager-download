@@ -6,19 +6,19 @@ repository privato `GuidoGentile/MobilityManager`.
 
 ## Download
 
-La versione di test **0.1.0-dev39** per Windows x64 è disponibile come
-[prerelease pubblica](https://github.com/GuidoGentile/mobilitymanager-download/releases/tag/v0.1.0-dev39).
+La versione di test **0.1.0-dev42** per Windows x64 è disponibile tramite il
+[download diretto](https://guidogentile.github.io/mobilitymanager-download/downloads/MobilityManager-Setup-0.1.0-dev42-x64.exe).
 La [landing page](https://guidogentile.github.io/mobilitymanager-download/)
 rimanda direttamente all'installer.
 Il pacchetto non è firmato digitalmente e non include dati personali né il
 dataset territoriale italiano, che si installa separatamente nell'applicazione.
 
 L'hash SHA-256 atteso è
-`03d311deb12c21df756a32322aaf37b12012ae0c823c1c67f9492ccb65baa213`.
-Il [file di controllo](downloads/MobilityManager-Setup-0.1.0-dev39-x64.sha256.txt)
-e il [manifest](downloads/MobilityManager-Setup-0.1.0-dev39-x64.json) sono
-disponibili anche in questo repository. Gli installer sono allegati alle release,
-non aggiunti alla cronologia del codice.
+`25fce1b56859e1d212ab7ad735158c7aec10c1a5b835890026c6993ef6fbbc2b`.
+Il [file di controllo](downloads/MobilityManager-Setup-0.1.0-dev42-x64.sha256.txt)
+e il [manifest](downloads/MobilityManager-Setup-0.1.0-dev42-x64.json) sono
+disponibili anche in questo repository. Per questa versione l'installer è
+servito direttamente dalla landing, senza passare da una pagina Release.
 
 La landing è composta da `index.html`, `tecnologia.html` e `assets/`; non
 contiene l'applicazione, i questionari o i piani locali.
