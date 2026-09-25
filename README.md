@@ -7,7 +7,7 @@ repository privato `GuidoGentile/MobilityManager`.
 ## Download
 
 La versione di test **0.1.0-dev42** per Windows x64 è disponibile tramite il
-[download diretto](https://raw.githubusercontent.com/GuidoGentile/mobilitymanager-download/refs/heads/main/downloads/MobilityManager-Setup-0.1.0-dev42-x64.exe).
+[download diretto](https://raw.githubusercontent.com/GuidoGentile/mobilitymanager-download/f22c06e23ab3d63d31e138d7734022aba2230658/downloads/MobilityManager-Setup-0.1.0-dev42-x64.exe).
 La [landing page](https://guidogentile.github.io/mobilitymanager-download/)
 rimanda direttamente all'installer.
 Il pacchetto non è firmato digitalmente e non include dati personali né il
