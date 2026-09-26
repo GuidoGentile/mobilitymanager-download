@@ -1,0 +1,10 @@
+{
+  "product": "MobilityManager",
+  "version": "0.1.0-dev50.4",
+  "architecture": "x64",
+  "python": "3.11.9",
+  "sha256": "ac60664c4476e55cae32afa2b540b9ee7a0e8e56da6438ea6f01095205158b1d",
+  "signed": false,
+  "signer": null,
+  "created_at": "2026-09-26T10:44:14.0804242Z"
+}
