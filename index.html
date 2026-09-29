@@ -34,10 +34,10 @@
         <h1 id="hero-title">Dal questionario<br>al piano che <em>muove</em><br>le decisioni.</h1>
         <p class="hero-lede">Una piattaforma che legge le campagne di mobilità, ricostruisce il territorio, misura i comportamenti e genera quattro output coordinati: due presentazioni, una relazione narrativa e un piano web locale interattivo.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="https://raw.githubusercontent.com/GuidoGentile/mobilitymanager-download/f34543246d1dd3e8111daf7fd5954e37db78b0b7/downloads/MobilityManager-Setup-0.1.0-dev53-x64.exe">Scarica per Windows</a>
+          <a class="button button-primary" href="https://raw.githubusercontent.com/GuidoGentile/mobilitymanager-download/75ca47eb1bf574e970dcff58a5ea863345dfbe51/downloads/MobilityManager-Setup-0.1.0-dev54-x64.exe">Scarica per Windows</a>
           <a class="button button-ghost" href="#prodotto">Scopri il prodotto</a>
         </div>
-        <p class="hero-download-note">Windows a 64 bit · 22,2 MiB · Versione di test 0.1.0-dev53</p>
+        <p class="hero-download-note">Windows a 64 bit · 22,2 MiB · Versione di test 0.1.0-dev54</p>
       </div>
       <div class="hero-proof" aria-label="Stato del prototipo">
         <div><strong>01</strong><span>analisi condivisa</span></div>
@@ -58,17 +58,17 @@
           <li>Apri l’eseguibile e conferma le cartelle proposte. Se i tuoi file sono altrove, incolla il percorso nella pagina dell’installer; la cartella di lavoro può contenere più aziende e casi.</li>
           <li>Avvia MobilityManager dal desktop e scegli il caso. Puoi cambiare la cartella di lavoro dall’app.</li>
           <li>Accanto alla cartella trovi il calendario della rete: usa il mercoledì feriale precedente al calcolo, oppure scegli una data. App e assistente condividono la stessa impostazione.</li>
-          <li>Al primo utilizzo, prepara i dati italiani dalla pagina <strong>Dati territoriali</strong> dell’app.</li>
+          <li>Al primo utilizzo, seleziona con i checkbox una o più macroregioni nella pagina <strong>Dati territoriali</strong>, conferma la scelta e poi prepara i motori locali.</li>
           <li>Per usare l’assistente, apri una nuova attività Codex: puoi selezionare la cartella del progetto anche dalla chat.</li>
         </ol>
         <p>I resoconti del lavoro vengono salvati nella cartella di lavoro in nuovi file, senza sovrascrivere i precedenti. File esportati, mappe e flussi OTP hanno verifiche distinte; la revisione visiva resta necessaria.</p>
         <p>Nel piano Web, la mappa locale è predefinita e funziona offline. Una sola tendina sceglie lo sfondo; nella legenda puoi mostrare o nascondere ogni livello e regolare lo spessore delle linee o la dimensione dei simboli.</p>
-        <p>Novità dev53: la mappa dell’app si apre direttamente con Positron di OpenFreeMap. Restano disponibili gli altri sfondi; nei piani Web esportati la mappa locale resta predefinita e utilizzabile offline. È inclusa la diagnostica OTP della dev52.</p>
+        <p>Novità dev54: prima di attivare Nominatim e OpenTripPlanner scegli con i checkbox le macroregioni da caricare. Vengono scaricati solo gli estratti OSM selezionati; gli orari regionali possono avere copertura incompleta. Le installazioni Italia già presenti sono conservate.</p>
         <p>La versione di test non è firmata digitalmente: Windows può mostrare un avviso di protezione.</p>
         <details class="package-details">
           <summary>Dettagli e verifica del file</summary>
-          <code>SHA-256<br>89cb3aa5c9c26af9faced975a9228ef319df9d39bb51059f3750d5d2909278b9</code>
-          <div class="download-links"><a href="downloads/MobilityManager-Setup-0.1.0-dev53-x64.sha256.txt" download>File di verifica</a><a href="downloads/MobilityManager-Setup-0.1.0-dev53-x64.json" download>Informazioni sul pacchetto</a></div>
+          <code>SHA-256<br>44415d1d1c4129ffa48108cd71502ea8e4716d899c56d4384fefc8401cde82a7</code>
+          <div class="download-links"><a href="downloads/MobilityManager-Setup-0.1.0-dev54-x64.sha256.txt" download>File di verifica</a><a href="downloads/MobilityManager-Setup-0.1.0-dev54-x64.json" download>Informazioni sul pacchetto</a></div>
         </details>
       </div>
     </section>
@@ -159,8 +159,8 @@
       <div class="territory-copy">
         <div class="section-kicker">IL TERRITORIO ENTRA NEL PIANO</div>
         <h2 id="territory-title">Non solo risposte.<br>Reti, servizi e distanze reali.</h2>
-        <p>Nominatim trasforma localmente gli indirizzi in coordinate usando OSM Italia. OpenStreetMap descrive strade e infrastrutture; GTFS e NeTEx descrivono gli orari; OpenTripPlanner combina rete e servizio per gli itinerari.</p>
-        <p>L’unica applicazione gestisce Nominatim e OpenTripPlanner, ma non incorpora l’intero archivio territoriale. Al primo utilizzo la pagina <strong>Dati territoriali</strong> può installare autonomamente Nominatim, indicizzare gli indirizzi e verificare il servizio con una ricerca pubblica; l’installazione completa costruisce anche il grafo. Per una sede, l’azione <strong>Prepara o aggiorna la mappa</strong> crea un ritaglio OSM circoscritto e riutilizzabile: Python non carica la rete italiana. In seguito puoi riavviare i motori senza download oppure richiedere un aggiornamento delle fonti.</p>
+        <p>Nominatim trasforma localmente gli indirizzi in coordinate usando gli estratti OSM delle macroregioni scelte. OpenStreetMap descrive strade e infrastrutture; GTFS e NeTEx descrivono gli orari; OpenTripPlanner combina rete e servizio per gli itinerari.</p>
+        <p>L’applicazione gestisce Nominatim e OpenTripPlanner, ma non incorpora l’intero archivio territoriale. Prima di attivare i motori, scegli una o più macroregioni con i checkbox: l’app acquisisce solo i rispettivi estratti, costruisce l’indice degli indirizzi e il grafo per l’area scelta. Per una sede, <strong>Prepara o aggiorna la mappa</strong> crea un ritaglio OSM circoscritto e riutilizzabile. In seguito puoi riavviare i motori senza download oppure richiedere un aggiornamento delle fonti.</p>
         <p>Per una verifica puntuale, l’operatore può controllare un numero di treno sul servizio pubblico ViaggiaTreno oppure aprire Google Maps con la sola sede come destinazione. Sono strumenti di controllo: non ricevono le origini dei dipendenti e non sostituiscono il calcolo locale.</p>
         <div class="layer-controls" aria-label="Livelli della mappa concettuale">
           <button type="button" class="layer active" data-layer="transit" aria-pressed="true">Trasporto pubblico</button>
