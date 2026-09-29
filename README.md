@@ -29,3 +29,7 @@ contiene l'applicazione, i questionari o i piani locali.
 
 Novità dev55.2: collegamento Codex corretto, indicazioni coerenti con il cambio
 automatico di area e rimozione dell’anteprima dalla scheda Dati territoriali.
+
+È disponibile anche lo [ZIP con lo stesso installer](https://github.com/GuidoGentile/mobilitymanager-download/releases/download/v0.1.0-dev55.2/MobilityManager-Setup-0.1.0-dev55.2-x64.zip).
+Dopo il download usa “Estrai tutto” e avvia l’eseguibile estratto.
+SHA-256 ZIP: `a2eb8fc9512657638ed567d2ba94664e558307184f0227dec6d3b9a7f66388f9`.
